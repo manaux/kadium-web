@@ -1,0 +1,24 @@
+<div class="page-login">
+
+  <div class="header">
+    <span>Kadium Admin</span>
+  </div>
+
+  <form [formGroup]="singInForm" class="login-form-holder">
+    <div class="title-1">Увійти</div>
+
+    <div class="std-input-holder">
+      <input type="text" id="login" placeholder="Номер телефону" formControlName="number">
+      <button type="button" (click)="sendCode()" class="button-inside-input">Отримати код</button>
+    </div>
+    <div class="std-input-holder">
+      <input type="text" id="verificationcode" placeholder="Код" formControlName="code">
+    </div>
+
+    <div class="form-error">Не існує користувача за вказаним телефоном, або не вірний код.</div>
+
+    <button (click)="signIn()" class="std-button-blue" [disabled]="singInForm.invalid">Увійти</button>
+  </form>
+
+  <div id="recaptcha-container"></div>
+</div>

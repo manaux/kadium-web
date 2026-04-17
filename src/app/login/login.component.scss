@@ -1,0 +1,116 @@
+
+
+.page-login .header {
+  text-align: center;
+}
+
+.login-form-holder {
+  width: 372px;
+  margin: auto;
+  padding: 16px;
+  top: calc(50% - 60px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.title-1 {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.std-input-holder {
+  position: relative;
+  margin: 0 0 16px;
+}
+
+.std-input-holder input {
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 13px 12px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #000000;
+  width: 100%;
+}
+
+.std-input-holder input:focus,
+.std-input-holder input:focus-visible {
+  border: 1px solid rgba(25, 89, 201, 0.5);
+  box-shadow: 0 0 4px rgba(25, 89, 201, 0.5);
+  outline: none;
+}
+
+.std-button-white,
+.std-button-blue,
+.std-button-grey {
+  padding: 13px 12px;
+  border: 0;
+  border-radius: 4px;
+  margin: 0 0 16px;
+  height: 42px;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.std-input-holder .button-inside-input {
+  color: #1959C9;
+  position: absolute;
+  background: #fff;
+  border: 0;
+  top: 2px;
+  height: 38px;
+  right: 2px;
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 0;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.std-input-holder .button-inside-input:hover {
+  color: #297aff;
+}
+
+.std-button-blue {
+  background: #1959C9;
+  color: #fff;
+}
+
+.login-form-holder .std-button-blue {
+  width: 100%;
+}
+
+.std-button-blue:hover {
+  background: #297aff;
+}
+
+.form-error {
+  color: #FF5151;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  margin: 16px;
+  display: none;
+}
+
+#recaptcha-container {
+  position: fixed;
+  right: 0;
+  bottom:0;
+}
+

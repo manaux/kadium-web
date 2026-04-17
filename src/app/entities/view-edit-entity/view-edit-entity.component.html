@@ -1,0 +1,38 @@
+<div class="page-wrapper page-view-edit">
+  <div class="actions-line">
+    <div class="page-title"><a [routerLink]="['../']">{{config.title}}</a><span>{{title}}</span></div>
+
+    <div class="menu-holder">
+      <button class="std-button btn-white ico-ok" (click)="save()">
+        <mat-icon>save</mat-icon>Зберегти
+      </button>
+      <button class="std-button btn-white ico-ok" *ngIf="showApprove" (click)="approve()">
+        <mat-icon>check</mat-icon>Підтвердити
+      </button>
+      <button class="std-button btn-white ico-block" *ngIf="showReject" (click)="reject()">
+        <mat-icon>block</mat-icon>Відхилити
+      </button>
+      <button class="std-button btn-white ico-copy" *ngIf="id && !config.disableCreate" (click)="duplicate()">
+        <mat-icon>content_copy</mat-icon>Зробити копію
+      </button>
+      <button class="std-button btn-white ico-delete" *ngIf="id && entityName !== Category.complexes" (click)="delete()">
+        <mat-icon>delete</mat-icon>Видалити
+      </button>
+    </div>
+  </div>
+
+  <form [formGroup]="entityForm" class="entity-info-wrapper">
+    <div class="entity-property" *ngFor="let column of config.columns">
+      <div class="field-name">{{column.title}}</div>
+      <div class="field-value" *ngIf="!column.type || !['status', 'datetime'].includes(column.type)"
+        contenteditable="true" [formControlName]="column.name"></div>
+      <div class="field-value" *ngIf="column.type === 'status'">
+        <span [ngClass]="statusClass"></span>
+      </div>
+      <div class="field-value" *ngIf="column.type === 'datetime'">
+        {{getDatetime(column.name)}}
+      </div>
+      <!-- [placeholder]="column.placeholder || column.title" -->
+    </div>
+  </form>
+</div>

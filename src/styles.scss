@@ -1,0 +1,229 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:400,700");
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  background: #fff;
+}
+
+body {
+  min-width: 1080px;
+  color: #000;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  font-family: "Ubuntu", sans-serif;
+  scrollbar-width: thin;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+.header {
+  padding: 22px;
+  background: rgba(0, 0, 0, 0.03);
+  height: 60px;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 16px;
+  color: #999999;
+}
+
+.page-wrapper {
+  padding: 20px 30px;
+}
+
+.page-title {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  margin-bottom: 14px;
+}
+
+.actions-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.std-button {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  padding: 6px 8px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  color: #999;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.std-button[class*="ico-"] {
+  padding-left: 6px;
+}
+
+.std-button mat-icon {
+  width: 16px;
+  height: 16px;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 17px;
+  text-align: center;
+  vertical-align: bottom;
+  margin-right: 4px;
+}
+
+.std-button:hover {
+  cursor: pointer;
+  color: #808080;
+  border: 1px solid #d9d9d9;
+}
+
+.ico-ok mat-icon {
+  color: #4fc87d;
+}
+
+.ico-block mat-icon {
+  color: #ff5151;
+}
+
+.search-input {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  color: #000000;
+  width: 300px;
+  padding: 7px 8px;
+}
+
+.search-input:hover {
+  border: 1px solid rgba(25, 89, 201, 0.3);
+}
+
+.search-input:focus,
+.search-input:focus-visible {
+  border: 1px solid rgba(25, 89, 201, 0.5);
+  outline: none;
+}
+
+.std-table {
+  width: 100%;
+}
+
+.std-table .mat-header-cell {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px;
+  color: #000000;
+}
+
+.std-table th.mat-header-cell,
+.std-table td.mat-cell {
+  padding: 16px;
+}
+
+.std-table th.mat-header-cell {
+  font-size: 14px;
+}
+
+.std-table tr:hover td.mat-cell {
+  background-color: #fafafa;
+  cursor: pointer;
+}
+
+.mat-paginator .mat-paginator-container {
+  justify-content: space-between;
+}
+
+.mat-paginator .mat-paginator-range-label {
+  margin: 0 16px;
+}
+
+span[class*="status-"] {
+  background: rgba(255, 157, 96, 0.08);
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 12px;
+  padding: 8px 12px 8px 24px;
+  position: relative;
+}
+
+span[class*="status-"]:before {
+  content: "•";
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  font-size: 24px;
+  line-height: 6px;
+}
+
+span[class*="status-"]:after {
+  color: #000000 !important;
+}
+
+span.status-inspection {
+  color: #FF9D60;
+  background: rgba(255, 157, 96, 0.08);
+}
+
+span.status-reject {
+  color: #FF1744;
+  background: rgba(255, 23, 68, 0.08);
+}
+
+span.status-approved {
+  color: #00AD84;
+  background: rgba(0, 173, 132, 0.08);
+}
+
+span.status-inspection:after {
+  content: "Очікує";
+}
+span.status-reject:after {
+  content: "Відхилено";
+}
+span.status-approved:after {
+  content: "Підтверджено";
+}
+
+.std-table {
+  table-layout: fixed;
+}
+
+
+.std-table [class*="mat-column-"] {width: 230px;}
+.std-table .mat-column-address {width: 500px;}
+.std-table .mat-column-title {width: 400px;}
+.std-table .mat-column-userId,
+.page-wrapper.contacts .std-table .mat-column-title {width: 300px;}
+.std-table .mat-column-number,
+.std-table .mat-column-entrance,
+.std-table .mat-column-houseId {width: 180px;}
+
+
+.std-table [class*="mat-column-"]:last-child {width: auto;}

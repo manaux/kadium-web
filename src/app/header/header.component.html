@@ -1,0 +1,31 @@
+<div class="header" *ngIf="router.url !== '/login'">
+  <div class="logo-and-title">
+    <!-- <span class="main-title">Kadium Admin</span> -->
+    <span class="dd-title header-complex-name" [matMenuTriggerFor]="selectComplex"
+      *ngIf="(currentComplex$ | async) && !isComplexesPage">
+      {{(currentComplex$ | async)?.name}}<mat-icon>expand_more</mat-icon>
+    </span>
+    <mat-menu #selectComplex="matMenu">
+      <button mat-menu-item *ngFor="let complex of complexes"
+        (click)="setCurrentComplex(complex)">{{complex.name}}</button>
+    </mat-menu>
+  </div>
+
+  <div class="header-menu-holder">
+    <ng-container *ngFor="let item of MENU">
+      <a [routerLink]="[item.link]" [class.with-counter]="item.counter" routerLinkActive="active">{{item.title}}</a>
+      <i *ngIf="item.counter">{{item.counter}}</i>
+    </ng-container>
+
+    <span class="dd-title header-user-name" [matMenuTriggerFor]="userActionsMenu">
+      {{(user$ | async)?.name ||(user$ | async)?.phone }}
+      <mat-icon>expand_more
+      </mat-icon>
+    </span>
+    <mat-menu #userActionsMenu="matMenu">
+      <!-- <button mat-menu-item>Profile</button> -->
+      <button mat-menu-item (click)="logout()">Log out</button>
+    </mat-menu>
+  </div>
+
+</div>

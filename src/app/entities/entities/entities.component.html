@@ -1,0 +1,59 @@
+<div class="page-wrapper" *ngIf="config" [ngClass]="entityName">
+  <div class="page-title">{{config.title}}</div>
+  <div class="actions-line">
+    <input (keyup)="applyFilter($event)" #input class="search-input" placeholder="Шукати за назвою, номером, тощо" />
+    <!-- <div class="std-button btn-gray">Шукати</div> -->
+    <a routerLink="new" class="std-button btn-white ico-add" *ngIf="!config.disableCreate">
+      <mat-icon>add</mat-icon>Додати
+    </a>
+  </div>
+
+
+  <table mat-table [dataSource]="dataSource" class="std-table" matSort>
+
+    <ng-container *ngFor="let column of config.columns" [matColumnDef]="column.name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{column.title}}</th>
+      <td mat-cell *matCellDef="let element">
+        <span *ngIf="column.type === 'datetime' && element && element[column.name]">
+          {{element[column.name] | date: 'dd.MM.yyyy, H:mm'}}
+        </span>
+        <span *ngIf="column.type === 'status' && element[column.name]"
+          class="status-{{element[column.name]?.toLowerCase()}}"></span>
+        <span *ngIf="column.type === 'link' && element[column.name]">
+          <a [href]="link" target="_blank"
+            *ngFor="let link of element[column.name].split(','); let isLast=last">{{link}}<span *ngIf="!isLast">,
+            </span></a>
+        </span>
+        <span *ngIf="!['datetime', 'status', 'link'].includes(column.type || '') && element[column.name]">
+          {{column.transform ? column.transform(element[column.name]) : element[column.name]}}
+        </span>
+        <span *ngIf="!element[column.name]" class="placeholder">
+          {{column.placeholder || column.title}}
+        </span>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="goToEntity(row)"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+        <span *ngIf="input.value">Нічого не знайдено для "{{input.value}}"</span>
+        <span *ngIf="!input.value">Немає жодного запису</span>
+      </td>
+    </tr>
+
+
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="25"></mat-paginator>
+
+
+
+
+
+
+
+
+</div>

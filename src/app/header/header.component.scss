@@ -1,0 +1,86 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-title {
+    color: #888;
+}
+
+.header-menu-holder a {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;   
+    text-align: center;       
+    color: #999999 !important;
+    margin: 0 8px;
+    text-decoration: none;
+    padding: 5px 0;
+
+    &.with-counter {
+      margin-right: 4px;
+    }
+
+    &.active {
+      font-weight: bold;
+    }
+}
+
+.header-menu-holder a:hover {
+    text-decoration: underline;
+}
+
+.header-menu-holder a+i {
+    position: static;
+    background: #FF5151;
+    border-radius: 10px;
+    color: #fff;
+    margin-right: 8px;
+    font-style: normal;
+    padding: 3px 6px;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 10px;
+}
+
+.dd-title {
+    font-weight: 700;
+    padding-right: 16px;
+}
+
+.dd-title mat-icon {
+    width: 16px;
+    height: 16px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 17px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.dd-title:hover {
+    cursor: pointer;
+    color: #545454;
+}
+
+.header-complex-name {
+    margin-left: 8px;
+    padding: 5px 0;
+    font-size: 18px;
+}
+
+.header-user-name {
+    margin-left: 4px;
+    padding: 5px 0 5px 25px;
+    position: relative;
+}
+
+.header-user-name:before {
+    content: "/";
+    position: absolute;
+    left: 0;
+    font-weight: normal;
+    text-align: center;
+    color: #E5E5E5;
+}
